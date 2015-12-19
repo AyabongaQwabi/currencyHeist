@@ -1,0 +1,16 @@
+module.exports = function(connection){
+
+  
+
+  var execute = function(query, data, cb){
+      connection.query(query, data, cb);
+  };
+
+
+
+  this.getTrends = function(cb){
+      execute('select * from fashion_trends',cb);
+  }
+  
+
+}
