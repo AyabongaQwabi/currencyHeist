@@ -4,24 +4,50 @@
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
-    <body>
+    <body >
       
-    	  
-	  <nav class='black'>
-	    <div class="nav-wrapper">
-	      <a href="#!" class="brand-logo">Logo</a>
-	      <a href="#" data-activates="mobileNav" class="button-collapse"><i class="material-icons">menu</i></a>
-	      <ul class="right hide-on-med-and-down">
-	        <li><a href="sass.html">Home</a></li>
-	        <li><a href="badges.html">Shop</a></li>
-	        <li><a href="collapsible.html">Blog</a></li>
-	        <li><a href="mobile.html">Contact</a></li>
+      
+	  <nav class='white black-text large'>
+	    <div class="nav-wrapper container">
+	      <img src='img/logo.png' class='brand-logo center small'>
+	      <a href="#" data-activates="mobileNav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
+	      <ul class="left hide-on-med-and-down ">
+	        <li><a href="/" class='black-text'>Home</a></li>
+	        <li><a href="/shop" class='black-text'>Shop</a></li>
+	        <li><a href="/blog" class='black-text'>Blog</a></li>
+	        <li><a href="/contact" class='black-text'>Contact</a></li>
 	      </ul>
+
+
+	      <ul class="right hide-on-med-and-down ">
+	        
+	        
+	        
+	       <li>
+	       		<div class="input-field">
+	          <input id="search" type="search" placeholder='find latest trends' required>
+	          <label for="search"><i class="material-icons black-text">search</i></label>
+	          <i class="material-icons">close</i>
+	        </div>
+	       </li>
+	        <li>
+	        	<a href="mobile.html" class='black-text chip'>
+	        	<i class="material-icons">shopping_cart</i> 
+	        	<span class='chip black-text'> 0 </span>
+	        	</a>
+	       </li>
+	       <li><a href="/login" class='black-text'>Login</a></li>
+	      </ul>
+
+
+
+
 	      <ul class="side-nav" id="mobileNav">
 	        <li><a href="sass.html">Home</a></li>
 	        <li><a href="badges.html">Shop</a></li>
@@ -57,6 +83,9 @@
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script type="text/javascript">
       	  $(".button-collapse").sideNav();
+      	  $(document).ready(function(){
+		      $('.slider').slider({full_width: true});
+		    });
       </script>
     </body>
   </html>

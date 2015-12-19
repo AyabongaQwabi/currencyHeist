@@ -58,9 +58,13 @@ var posts = new postsMethods();
 var user = new userMethods();
 
 app.get('/', feature.showFeatured);
+app.get('/blog',posts.showLatest)
 app.get('/login',user.showLogin)
 app.get('/trends', trends.showLatest);
-app.post('/blog',posts.showLatest)
+app.get('/contact', function(req,res){
+      res.render('contact')
+});
+
 
 app.use(function(req,res,next){
    console.log('req.url'+req.url+'\nreq.session.user : '+JSON.stringify(req.session.user))

@@ -1,16 +1,55 @@
+ <div class="slider">
+    <ul class="slides">
+      {{#featured}}
+      <li>
+        <img src="img/{{url}}">
+        <div class='row caption'> <!-- random image -->
+          {{#selling_item}}
+          <div class="card white center left-align col s5 m4">
+            <br>
+            <a href='shop/addToCart/featured/{{id}}' class='chip black white-text'> buy <i class="material-icons">shopping_cart</i></a>
+            <h5 class="black-text flow-text">{{caption}}</h5>
+            <h6 class="black-text flow-text"><small>{{description}}</small></h6>
+            
+            <br>
 
-  <ul class="collapsible" data-collapsible="accordion">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-  </ul>
-        
+          </div>
+          {{/selling_item}}
+          {{^selling_item}}
+          <div class="card black center left-align col s5 m4">
+            <br>
+            <a href='/login' class='btn white black-text'> Signup </a>
+            <h6 class="white-text flow-text"><small>Unleash the hustler in you </small></h6>
+            
+            &nbsp;
+            <br>
+
+          </div>
+          {{/selling_item}}
+        </div>
+      </li>
+      {{/featured}}
+    </ul>
+  </div>
+  <div class='row center card-panel row'>
+   
+    <div class="row">
+       {{#posts}}
+        <div class="col s6 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/{{url}}">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+              <p class='truncate'>{{title}}</p>
+            </div>
+            <div class="card-action">
+              <a href="/blog/{{id}}" class='chip black white-text'>Read more</a>
+            </div>
+          </div>
+        </div>
+        {{/posts}}
+      </div>
+    
+ </div>
