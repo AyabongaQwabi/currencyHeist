@@ -8,11 +8,13 @@ var express = require('express'),
     trendsMethods = require('./routes/trends'),
     postsMethods = require('./routes/post'),
     featureMethods = require('./routes/feature'),
-    userMethods =require('./routes/user')
+    userMethods =require('./routes/user'),
+    productMethods =require('./routes/product'),
     trendsDataService = require('./dataServices/trendsDataService'),
     postsDataService = require('./dataServices/postDataService'),
     featureDataService = require('./dataServices/featureDataService'),
     userDataService = require('./dataServices/userDataService'),
+    productDataService = require('./dataServices/productDataService'),
     ConnectionProvider = require('./routes/connectionProvider');
     //session = require('express-session');
 
@@ -32,7 +34,8 @@ var serviceSetupCallback = function(connection){
 		trendsDataServ : new trendsDataService(connection),
     postsDataServ : new postsDataService(connection),
     featureDataServ : new featureDataService(connection),
-    userDataServ : new userDataService(connection)
+    userDataServ : new userDataService(connection),
+    productDataServ : new productDataService(connection)
 	}
 };
 
@@ -56,9 +59,11 @@ var feature = new featureMethods();
 var trends = new trendsMethods();
 var posts = new postsMethods();
 var user = new userMethods();
+var products = new productMethods();
 
 app.get('/', feature.showFeatured);
 app.get('/blog',posts.showLatest)
+app.get('/shop',products.showProducts)
 app.get('/login',user.showLogin)
 app.get('/trends', trends.showLatest);
 app.get('/contact', function(req,res){
