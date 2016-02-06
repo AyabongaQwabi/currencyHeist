@@ -2,30 +2,16 @@
     <ul class="slides">
       {{#featured}}
       <li>
-        <img src="img/{{url}}">
+        <img src="img/{{image_url}}">
         <div class='row caption'> <!-- random image -->
-          {{#selling_item}}
-          <div class="card white center left-align col s5 m4">
-            <br>
-            <a href='shop/addToCart/featured/{{id}}' class='chip black white-text'> buy <i class="material-icons">shopping_cart</i></a>
-            <h5 class="black-text flow-text">{{caption}}</h5>
-            <h6 class="black-text flow-text"><small>{{description}}</small></h6>
-            
-            <br>
-
-          </div>
-          {{/selling_item}}
-          {{^selling_item}}
-          <div class="card black center left-align col s5 m4">
-            <br>
-            <a href='/login' class='btn white black-text'> Signup </a>
-            <h6 class="white-text flow-text"><small>Unleash the hustler in you </small></h6>
-            
-            &nbsp;
-            <br>
-
-          </div>
-          {{/selling_item}}
+          {{#product}}
+          
+            <a href='/shop' class='large chip black white-text center left-align'> get <i class="material-icons">shopping_cart</i></a>
+          
+          {{/product}}
+          {{#post}}       
+            <a href='/blog' class='large chip black white-text center left-align'> more.. </a>            
+           {{/post}}
         </div>
       </li>
       {{/featured}}

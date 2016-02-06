@@ -11,24 +11,21 @@ module.exports = function(){
           
               var featureService = services.featureDataServ;
 
-              featureService.getFeaturedImages(function(err, images) {
+              featureService.getBanners(function(err, images) {
                  if (err) return next(err); 
                  featureService.getFeaturedPosts(function(err,posts){
                         if (err) return next(err); 
-                 		images.forEach(function(image){
-		                  	if(image['selling_item']==0){
-		                      image['selling_item']=false;
-		                 	}
-		                 	else{
-		                 		image['selling_item']=true;
-		                 	}
-		                 })
+                     		images.forEach(function(image){
+    		                  	if(image['product_id']!=null){
+    		                      image['product']=true;
+      		                 	}
+      		                 	else{
+      		                 		image['post']=true;
+
+      		                 	}
+    		                 })
 		                 res.render('main',  {featured: images ,posts:posts});
-		                 console.log(posts)
-
-
-
-
+		                 console.log(images)
 
                  })              
                  
