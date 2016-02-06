@@ -11,6 +11,9 @@ module.exports = function(connection){
   this.getProducts = function(cb){
       execute('SELECT * FROM product,image WHERE image.product_id = product.id',cb);
   }
+  this.getProduct = function(id,cb){
+      execute('SELECT * FROM product,image WHERE image.product_id = product.id and product.id= ?',id,cb);
+  }
   
 
 }

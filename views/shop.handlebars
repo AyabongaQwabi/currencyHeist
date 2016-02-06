@@ -3,9 +3,9 @@
 	        <div class="col s12 m3">
 	          <div class="card">
 	            <div class="card-image">
-	              <img src="img/{{url}}">
+	              <img class='materialboxed' width='auto' src="img/{{url}}">
 	              <span class="card-title">
-	              	<a href='shop/addToCart/featured/{{id}}' class='chip black white-text'> buy <i class="material-icons">shopping_cart</i></a>
+	              	<button data-target="modal1" onclick="addToCart('{{product_id}}')"class='btn modal-trigger black white-text'> buy <i class="material-icons">shopping_cart</i></button>
 	              </span>
 	            </div>
 	            <div class="card-content">
@@ -22,3 +22,49 @@
 
 
 </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h5 class='flow-text'>Stuff you're taking with you</h6>
+      <div class='small'>
+        <table class='table flow-text '>
+	       	<thead>
+	       		<td> Item </td>
+	       		<td> Price </td>
+	       		<td> Options</td>
+	       	</thead>
+	       	<tbody class='items-to-buy'>
+	       	</tbody>
+	     </table>
+	  </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+  <script type='text/javascript'>
+   $('.modal-trigger').leanModal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      in_duration: 300, // Transition in duration
+      out_duration: 200, // Transition out duration
+      ready: function() { alert('Ready'); }, // Callback for Modal open
+      complete: function() { alert('Closed'); } // Callback for Modal close
+    }
+  );
+  	 function addToCart(id){
+		       	 $.get('/product/'+id,function(data){
+		       	 
+		       	 	var product = data.product[0]
+		       	 	var item = '<tr><td><small>'+product.name+'</small></td>'+
+		       	 				   '<td><small>'+product.price+'</small></td>'+
+                                   "<td><small><button class='circle btn-floating btn-small waves-effect waves-light red'>X</button></small></td>"+
+                                '<tr>';
+                    $('.items-to-buy').append(item)
+		       	 	//$('#modal1').openModal();
+		       	 })
+		       }
+   
+</script>

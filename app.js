@@ -50,8 +50,6 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
-
 var feature = new featureMethods();
 var trends = new trendsMethods();
 var posts = new postsMethods();
@@ -62,6 +60,7 @@ app.get('/', feature.showFeatured);
 app.get('/blog',posts.showLatest)
 app.get('/blog/:id',posts.showBlog)
 app.get('/shop',products.showProducts)
+app.get('/product/:id',products.getProduct)
 app.get('/login',user.showLogin)
 app.get('/trends', trends.showLatest);
 app.get('/contact', function(req,res){

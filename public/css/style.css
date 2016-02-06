@@ -21,3 +21,6 @@ nav .brand-logo {
 .collection .collection-item{
 	padding:0;
 }
+.card{
+	overflow: visible;
+}
