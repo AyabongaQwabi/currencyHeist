@@ -1,0 +1,26 @@
+{{#post}}
+<div class='container'>
+	<div class='row card white center'>
+		<a href='/blog' class=' black chip  white-text secondary-content left'><i class="material-icons">arrow_back</i></a>
+		<h3 class='flow-text'>{{title}}</h3>
+		<div class='row blog-header'>
+			<style type='text/css'>
+				.blog-header{
+					background:url('/../../../img/{{url}}');
+					width: 100%;
+				    height: 45%;
+				    background-size: cover;
+				    background-repeat: no-repeat;
+				    background-position: 10% 50%;
+				}
+			</style>
+		</div>
+		<div class='row center'>
+			<div class='container'>
+				{{detail}}
+			</div>
+
+		</div>
+	</div>
+</div>
+{{/post}}

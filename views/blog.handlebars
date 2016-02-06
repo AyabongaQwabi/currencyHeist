@@ -1,0 +1,19 @@
+<div class='row'>
+	<div class='container'>
+		<h1 class='flow-text'> Latest </h1>
+		{{#posts}}
+		<ul class="collection black">
+		
+		    <li class="collection-item avatar center">
+		      <img src="img/{{url}}" class='circle'>
+		      <br>
+
+		      <span class="title center flow-text"><b>{{title}}</b></span>
+		      
+		      <a href='/blog/{{post_id}}' class="black white-text waves-effect waves-light btn secondary-content"><i class="material-icons left">chrome_reader_mode</i> view</a>
+		    </li>
+		  
+		</ul>
+		{{/posts}}
+	</div>
+</div>

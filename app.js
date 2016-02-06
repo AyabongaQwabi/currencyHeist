@@ -40,16 +40,13 @@ var serviceSetupCallback = function(connection){
 };
 
 var myConnectionProvider = new ConnectionProvider(dbOptions, serviceSetupCallback);
+app.use(express.static('public'));
 app.use(myConnectionProvider.setupProvider);
 app.use(myConnection(mysql, dbOptions, 'pool'));
 app.use(cookieParser());
 app.use(session({secret:'currencyHeistSessionSecret'}));
-
 app.engine('handlebars', exphbs({defaultLayout: 'navigation'}));
 app.set('view engine', 'handlebars');
-
-app.use(express.static('public'));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -63,6 +60,7 @@ var products = new productMethods();
 
 app.get('/', feature.showFeatured);
 app.get('/blog',posts.showLatest)
+app.get('/blog/:id',posts.showBlog)
 app.get('/shop',products.showProducts)
 app.get('/login',user.showLogin)
 app.get('/trends', trends.showLatest);
@@ -71,7 +69,7 @@ app.get('/contact', function(req,res){
 });
 
 
-app.use(function(req,res,next){
+/**app.use(function(req,res,next){
    console.log('req.url'+req.url+'\nreq.session.user : '+JSON.stringify(req.session.user))
     if(req.session.user){
       next();
@@ -79,7 +77,7 @@ app.use(function(req,res,next){
     else{
       res.render('login')
     }
-})
+})**/
 
 
 
